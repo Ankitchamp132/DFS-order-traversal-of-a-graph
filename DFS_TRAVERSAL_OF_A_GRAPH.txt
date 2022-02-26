@@ -1,0 +1,18 @@
+void dfs(int val,bool vis[],vector<int> &v,vector<int> adj[]){
+        vis[val]=true;
+        v.push_back(val);
+        for(auto pr:adj[val]){
+            if(vis[pr]!=true){
+                dfs(pr,vis,v,adj);
+            }
+        }
+    }
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        vector<int>v;
+        bool *visited=new bool[V];
+        for(int i=0;i<V;i++){
+            visited[i]=false;
+        }
+        dfs(0,visited,v,adj);
+        return v;
+    }
